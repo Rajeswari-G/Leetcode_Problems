@@ -1,0 +1,52 @@
+Input : 10#11#12
+output: jkab
+
+print 1 to 9 values in a to i
+print 10# to 26# values in j to z
+
+
+
+//Input: 12#13
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+int main()
+{
+  char s[100],k,d;
+  int i,j,n;
+  printf("Enter a string:");
+  scanf("%s",s);
+  n=strlen(s);
+  for(i=0;i<n;i++)
+  {
+  	// if a character is an '#'
+  	if(s[i]=='#')
+  	{
+  		// value start with 20 to 26 add an value 18
+  		// Example: 26# = 50+54+18 =122 ==z
+  	    if(s[i-2]==50)
+  	    {
+  	        k=s[i-1]+s[i-2]+18;
+  	        printf("%c",k);
+  	    }
+  	    // value between 10 to 19 add an 9 
+  	    // Example: 10# = 49+48+9=106==j
+  	    else
+  	    {
+  		k=s[i-1]+s[i-2]+9;
+  		printf("%c",k);
+  	    }
+  		
+	}
+	// if  a character is an not '#' and values between 1 to 9 .
+	// take an first digit and check its between 49 to 57 and next character is not '#' also the third character is not an '#' and may be NULL.
+	// then add the ASCII value with 48 
+	else if((s[i]>=49 && s[i]<=57) && ( s[i+1]!='#' && (s[i+2]!='#'|| s[i+2]==NULL)))
+	{
+		d=s[i]+48;
+		printf("%c",d);
+	}
+  }	
+  getch();
+  return 0;
+}
