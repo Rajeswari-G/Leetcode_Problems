@@ -1,0 +1,39 @@
+Input : book
+Output: True 
+Explaination : a="bo" and b="ok" . a has 1 vowel and b has 1 vowel. Therefore , they are alike.
+
+
+
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char s[100];
+	int n,i,c1=0,c2=0,k,j;
+	printf("Enter a string:");
+	scanf("%s",s);
+	n=strlen(s);
+	k=n/2;
+	for(i=0,j=k;(i<k && j<n);i++,j++)
+	{
+		if(s[i]=='a'|| s[i]=='e' || s[i]=='i'|| s[i]=='o'||s[i]=='u'||s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')
+		{
+			c1++;
+		}
+		if(s[j]=='a'||s[j]=='e'||s[j]=='i'||s[j]=='o'||s[j]=='u'||s[j]=='A'||s[j]=='E'||s[j]=='I'||s[i]=='O'||s[j]=='U')
+		{
+			c2++;
+		}
+	
+	}
+	if(c1==c2)
+	{
+		printf("True");
+	}
+	else
+	{
+		printf("False");
+	}
+	return 0;
+}
