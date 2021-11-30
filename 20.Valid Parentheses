@@ -1,0 +1,49 @@
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+	char s[100];
+	int i,count=0,j;
+	printf("Enter the string:");
+	scanf("%s",s);
+  
+  // it only check with an '[' '{' '('
+ 
+	for(i=0;i<strlen(s);i++)
+	{
+		if (( s[i]=='(' && s[i+1]==')') || (s[i]=='{' && s[i+1]=='}') || (s[i]=='[' && s[i+1]==']'))
+		{
+			count+=2;
+		}
+    
+    
+		else if (s[i]=='(' || s[i]=='{' || s[i]=='[')
+		{
+			if(s[i+1]=='(' || s[i+1]=='{' || s[i+1]=='[' )
+			{
+				for(j=i;j<strlen(s);j++)
+				{
+					if(s[i]==s[j])
+					{
+						count+=2;
+					}
+				}
+			}
+		}
+	}
+	if(strlen(s)==count)
+	printf("True");
+	else
+	printf("False");
+	getch();
+	return 0;
+}
